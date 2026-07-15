@@ -1,65 +1,98 @@
-import Image from "next/image";
+"use client";
+
+import * as React from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import LoadingScreen from "@/components/sections/LoadingScreen";
+import Hero from "@/components/sections/Hero";
+import Navbar from "@/components/brand/Navbar";
+import About from "@/components/sections/About";
+import Pillars from "@/components/sections/Pillars";
+import VisionMissionValues from "@/components/sections/VisionMissionValues";
+import ServicesPreview from "@/components/sections/ServicesPreview";
+import WayForwardTeaser from "@/components/sections/WayForwardTeaser";
+import FooterReveal from "@/components/brand/FooterReveal";
+import ScrollInquiry from "@/components/sections/ScrollInquiry";
+import SmoothScroll from "@/components/brand/SmoothScroll";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [isDocked, setIsDocked] = React.useState(false);
+  const [isScrollUnlocked, setIsScrollUnlocked] = React.useState(false);
+  const [reducedMotion, setReducedMotion] = React.useState(false);
+
+  React.useEffect(() => {
+    setReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }, []);
+
+  // Lock scroll until logo docking completes
+  React.useEffect(() => {
+    if (isDocked) {
+      const duration = reducedMotion ? 50 : 800; // instant unlock on reduced motion
+      const timer = setTimeout(() => {
+        setIsScrollUnlocked(true);
+      }, duration);
+      return () => clearTimeout(timer);
+    }
+  }, [isDocked, reducedMotion]);
+
+  React.useEffect(() => {
+    if (!isScrollUnlocked) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    };
+  }, [isScrollUnlocked]);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+    <SmoothScroll>
+      <div className="relative min-h-screen bg-black text-white w-full overflow-x-hidden">
+        {/* Loading Overlay */}
+        <AnimatePresence>
+          {isLoading && (
+            <LoadingScreen onComplete={() => setIsLoading(false)} />
+          )}
+        </AnimatePresence>
+
+        {/* Home Flow Content */}
+        {!isLoading && (
+          <FooterReveal>
+            {/* Docked Navigation Header */}
+            <Navbar isDocked={isDocked} />
+
+            {/* Cinematic Hero Header Slider */}
+            <Hero
+              isDocked={isDocked}
+              setIsDocked={setIsDocked}
+              isLoading={isLoading}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+
+            {/* Homepage Body Chapters */}
+            <AnimatePresence>
+              {isDocked && (
+                <motion.div
+                  initial={reducedMotion ? { opacity: 1 } : { opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, ease: "easeOut" }}
+                  className="relative z-10 w-full"
+                >
+                  <About />
+                  <Pillars />
+                  <VisionMissionValues />
+                  <ServicesPreview />
+                  <WayForwardTeaser />
+                  <ScrollInquiry />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </FooterReveal>
+        )}
+      </div>
+    </SmoothScroll>
   );
 }
