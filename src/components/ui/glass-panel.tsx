@@ -24,25 +24,35 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
     return (
       <>
         <svg className="absolute w-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <filter id={`liquid-panel-${filterId}`} primitiveUnits="objectBoundingBox">
-            <feImage result="map" width="100%" height="100%" x="0" y="0" href={WEBP_DISPLACEMENT_MAP} preserveAspectRatio="none" />
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.015" result="blur" />
-            <feDisplacementMap id="disp" in="blur" in2="map" scale="8.0" xChannelSelector="R" yChannelSelector="G" />
+          <filter id={`liquid-panel-${filterId}`} x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
+            {/* Generate turbulent noise for distortion */}
+            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
+            {/* Blur the turbulence pattern slightly */}
+            <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
+            {/* Displace the source graphic with the noise */}
+            <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
+            {/* Apply overall blur on the final result */}
+            <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
+            {/* Output the result */}
+            <feComposite in="finalBlur" in2="finalBlur" operator="over" />
           </filter>
         </svg>
         <style>{`
           .glass-panel-${filterId} {
             position: relative;
             background-color: ${panelBg};
-            backdrop-filter: blur(28px) url(#liquid-panel-${filterId}) saturate(145%);
+            backdrop-filter: url(#liquid-panel-${filterId});
             -webkit-backdrop-filter: blur(28px) saturate(145%);
             box-shadow:
-              inset 0px 0px 0px 1.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.12)'},
-              inset 1.8px 3px 1.5px -1px rgba(255, 255, 255, 0.35),
-              inset -1.5px -2.5px 1.5px -1px rgba(255, 255, 255, 0.15),
-              inset -0.3px -1px 4px 0px rgba(0, 0, 0, 0.25),
-              0px 8px 32px 0px rgba(0, 0, 0, 0.5),
-              0px 0px 20px 0px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.08)' : 'rgba(255, 255, 255, 0.03)'};
+              0 0 8px rgba(0,0,0,0.03),
+              0 2px 6px rgba(0,0,0,0.08),
+              inset 3px 3px 0.5px -3.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.09)'},
+              inset -3px -3px 0.5px -3.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.9)' : 'rgba(255, 255, 255, 0.85)'},
+              inset 1px 1px 1px -0.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.8)' : 'rgba(255, 255, 255, 0.6)'},
+              inset -1px -1px 1px -0.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.8)' : 'rgba(255, 255, 255, 0.6)'},
+              inset 0 0 6px 6px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.22)' : 'rgba(255, 255, 255, 0.12)'},
+              inset 0 0 2px 2px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.12)' : 'rgba(255, 255, 255, 0.06)'},
+              0 0 12px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(0, 0, 0, 0.15)'};
             transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
           }
           .glass-panel-${filterId}::before {
