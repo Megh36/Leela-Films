@@ -26,8 +26,8 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
         <svg className="absolute w-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <filter id={`liquid-panel-${filterId}`} primitiveUnits="objectBoundingBox">
             <feImage result="map" width="100%" height="100%" x="0" y="0" href={WEBP_DISPLACEMENT_MAP} preserveAspectRatio="none" />
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.01" result="blur" />
-            <feDisplacementMap id="disp" in="blur" in2="map" scale="3.5" xChannelSelector="R" yChannelSelector="G" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.015" result="blur" />
+            <feDisplacementMap id="disp" in="blur" in2="map" scale="8.0" xChannelSelector="R" yChannelSelector="G" />
           </filter>
         </svg>
         <style>{`
@@ -43,7 +43,28 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
               inset -0.3px -1px 4px 0px rgba(0, 0, 0, 0.25),
               0px 8px 32px 0px rgba(0, 0, 0, 0.5),
               0px 0px 20px 0px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.08)' : 'rgba(255, 255, 255, 0.03)'};
-            transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), background-color 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+          }
+          .glass-panel-${filterId}::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.18)'},
+              transparent
+            );
+            transform: skewX(-25deg);
+            transition: left 850ms cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 5;
+          }
+          .glass-panel-${filterId}:hover::before {
+            left: 150%;
           }
           ${hoverScale ? `@media (hover: hover) { .glass-panel-${filterId}:hover { transform: translateY(-4px) scale(1.01); } }` : ''}
         `}</style>
