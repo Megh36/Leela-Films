@@ -13,69 +13,29 @@ interface GlassPanelProps extends React.HTMLAttributes<HTMLDivElement> {
 export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
   ({ className, children, glassColor, variant = "default", hoverScale = false, ...props }, ref) => {
     const filterId = React.useId().replace(/:/g, "");
-    const [isScrolling, setIsScrolling] = React.useState(false);
 
-    // Scroll state tracking to temporarily deactivate CPU-heavy SVG filter during scroll animations
-    React.useEffect(() => {
-      let scrollTimeout: NodeJS.Timeout;
-      const handleScroll = () => {
-        setIsScrolling(true);
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-          setIsScrolling(false);
-        }, 150);
-      };
-
-      window.addEventListener("scroll", handleScroll, { passive: true });
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        clearTimeout(scrollTimeout);
-      };
-    }, []);
-
-    // Tints
+    // Hardware-accelerated solid glass tints
     const defaultColor = variant === "accent"
-      ? "rgba(229, 27, 36, 0.12)" // brand-red
-      : "rgba(10, 10, 10, 0.65)";   // neutral dark warm black
+      ? "linear-gradient(135deg, rgba(229, 27, 36, 0.15) 0%, rgba(229, 27, 36, 0.04) 100%)"
+      : "linear-gradient(135deg, rgba(18, 18, 18, 0.8) 0%, rgba(8, 8, 8, 0.9) 100%)";
 
     const panelBg = glassColor || defaultColor;
 
     return (
       <>
-        <svg className="absolute w-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true">
-          <filter id={`liquid-panel-${filterId}`} x="0%" y="0%" width="100%" height="100%" colorInterpolationFilters="sRGB">
-            {/* Generate turbulent noise for distortion */}
-            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.05" numOctaves="1" seed="1" result="turbulence" />
-            {/* Blur the turbulence pattern slightly */}
-            <feGaussianBlur in="turbulence" stdDeviation="2" result="blurredNoise" />
-            {/* Displace the source graphic with the noise */}
-            <feDisplacementMap in="SourceGraphic" in2="blurredNoise" scale="70" xChannelSelector="R" yChannelSelector="B" result="displaced" />
-            {/* Apply overall blur on the final result */}
-            <feGaussianBlur in="displaced" stdDeviation="4" result="finalBlur" />
-            {/* Output the result */}
-            <feComposite in="finalBlur" in2="finalBlur" operator="over" />
-          </filter>
-        </svg>
         <style>{`
           .glass-panel-${filterId} {
             position: relative;
-            background-color: ${panelBg};
-            backdrop-filter: ${isScrolling ? "blur(20px) saturate(180%)" : `url(#liquid-panel-${filterId})`};
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: ${panelBg};
+            border: 1px solid ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.08)'};
             box-shadow:
-              0 0 8px rgba(0,0,0,0.03),
-              0 2px 6px rgba(0,0,0,0.08),
-              inset 3px 3px 0.5px -3.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.09)'},
-              inset -3px -3px 0.5px -3.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.9)' : 'rgba(255, 255, 255, 0.85)'},
-              inset 1px 1px 1px -0.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.8)' : 'rgba(255, 255, 255, 0.6)'},
-              inset -1px -1px 1px -0.5px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.8)' : 'rgba(255, 255, 255, 0.6)'},
-              inset 0 0 6px 6px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.22)' : 'rgba(255, 255, 255, 0.12)'},
-              inset 0 0 2px 2px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.12)' : 'rgba(255, 255, 255, 0.06)'},
-              0 0 12px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(0, 0, 0, 0.15)'};
+              0 4px 24px rgba(0,0,0,0.4),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.09),
+              inset 0 -1px 0 0 rgba(0, 0, 0, 0.4);
             transform: translate3d(0, 0, 0);
             will-change: transform;
             backface-visibility: hidden;
-            transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), background 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms cubic-bezier(0.16, 1, 0.3, 1);
           }
           .glass-panel-${filterId}::before {
             content: "";
@@ -87,7 +47,7 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
             background: linear-gradient(
               90deg,
               transparent,
-              ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.18)'},
+              ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(255, 255, 255, 0.12)'},
               transparent
             );
             transform: skewX(-25deg);
@@ -98,7 +58,7 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
           .glass-panel-${filterId}:hover::before {
             left: 150%;
           }
-          ${hoverScale ? `@media (hover: hover) { .glass-panel-${filterId}:hover { transform: translateY(-4px) scale(1.01) translate3d(0, -4px, 0); } }` : ''}
+          ${hoverScale ? `@media (hover: hover) { .glass-panel-${filterId}:hover { transform: translateY(-4px) translate3d(0, -4px, 0); } }` : ''}
         `}</style>
         <div
           ref={ref}
