@@ -153,15 +153,15 @@ export const VisionMissionValues: React.FC = () => {
               transition={{ duration: 0.7, ease: "easeOut" }}
               className="flex-1"
             >
-              <SpotlightCard hoverScale className="p-12 h-full flex flex-col gap-y-6">
-                <div className="h-12 w-12 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
-                  <Eye className="h-6 w-6" />
+              <SpotlightCard hoverScale className="p-8 h-full flex flex-col gap-y-5">
+                <div className="h-11 w-11 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
+                  <Eye className="h-5 w-5" />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-heading font-black text-white relative z-10">Our Vision</h3>
-                <p className="text-white relative z-10 font-bold text-lg md:text-xl lg:text-2xl leading-relaxed tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-heading font-black text-white relative z-10">Our Vision</h3>
+                <p className="text-white/85 relative z-10 font-medium text-sm md:text-base leading-relaxed tracking-wide">
                   To build the entertainment industry's most powerful hybrid ecosystem — creating iconic storytelling while delivering world class creative, production and brand services at a global standard.
                 </p>
-                <div className="pt-4 mt-auto relative z-10">
+                <div className="pt-3 mt-auto relative z-10">
                   <Link href="/about">
                     <GlassButton variant="default" size="sm" className="font-heading font-bold text-xs tracking-wider">
                       EXPLORE ECOSYSTEM
@@ -179,15 +179,15 @@ export const VisionMissionValues: React.FC = () => {
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
               className="flex-1"
             >
-              <SpotlightCard hoverScale className="p-12 h-full flex flex-col gap-y-6">
-                <div className="h-12 w-12 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
-                  <Target className="h-6 w-6" />
+              <SpotlightCard hoverScale className="p-8 h-full flex flex-col gap-y-5">
+                <div className="h-11 w-11 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
+                  <Target className="h-5 w-5" />
                 </div>
-                <h3 className="text-3xl md:text-4xl font-heading font-black text-white relative z-10">Our Mission</h3>
-                <p className="text-white relative z-10 font-bold text-lg md:text-xl lg:text-2xl leading-relaxed tracking-tight">
+                <h3 className="text-2xl md:text-3xl font-heading font-black text-white relative z-10">Our Mission</h3>
+                <p className="text-white/85 relative z-10 font-medium text-sm md:text-base leading-relaxed tracking-wide">
                   To dominate every vertical of the entertainment and media industry through premium creativity, cultural impact, and uncompromising execution that connects with every generation.
                 </p>
-                <div className="pt-4 mt-auto relative z-10">
+                <div className="pt-3 mt-auto relative z-10">
                   <Link href="/about">
                     <GlassButton variant="default" size="sm" className="font-heading font-bold text-xs tracking-wider">
                       EXPLORE ECOSYSTEM
@@ -206,12 +206,12 @@ export const VisionMissionValues: React.FC = () => {
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             className="lg:col-span-6"
           >
-            <SpotlightCard className="p-12 h-full flex flex-col gap-y-8">
-              <h3 className="text-3xl md:text-4xl font-heading font-black text-white border-b border-white/10 pb-4 relative z-10">
+            <SpotlightCard className="p-8 h-full flex flex-col gap-y-6">
+              <h3 className="text-2xl md:text-3xl font-heading font-black text-white border-b border-white/10 pb-3.5 relative z-10">
                 Core Values
               </h3>
               
-              <div className="flex flex-col gap-y-12 my-auto relative z-10">
+              <div className="flex flex-col gap-y-8 my-auto relative z-10">
                 {values.map((val, idx) => {
                   const Icon = val.icon;
                   return (
@@ -223,10 +223,10 @@ export const VisionMissionValues: React.FC = () => {
                       transition={{ duration: 0.5, delay: reducedMotion ? 0 : idx * 0.1 }}
                       className="flex items-start gap-4 group/item"
                     >
-                      <div className="h-10 w-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white/75 group-hover/item:text-brand-red group-hover/item:border-brand-red/30 transition-all duration-300 flex-shrink-0 mt-0.5">
-                        <Icon className="h-5 w-5" />
+                      <div className="h-9 w-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white/75 group-hover/item:text-brand-red group-hover/item:border-brand-red/30 transition-all duration-300 flex-shrink-0 mt-0.5">
+                        <Icon className="h-4.5 w-4.5" />
                       </div>
-                      <p className="text-white/85 leading-relaxed font-semibold font-body text-lg md:text-xl lg:text-2xl group-hover/item:text-white transition-colors duration-300">
+                      <p className="text-white/85 leading-relaxed font-semibold font-body text-sm md:text-base lg:text-lg group-hover/item:text-white transition-colors duration-300">
                         {val.text}
                       </p>
                     </motion.div>
