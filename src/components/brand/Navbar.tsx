@@ -52,23 +52,23 @@ export const Navbar: React.FC<NavbarProps> = ({ isDocked }) => {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="pointer-events-auto w-full"
             >
-              <div className="w-full px-6 md:px-12 py-7 bg-black/65 backdrop-blur-2xl border-b border-white/10 flex items-center justify-between overflow-visible">
+              <div className="w-full px-6 md:px-12 py-5 bg-black/65 backdrop-blur-2xl border-b border-white/10 flex items-center justify-between overflow-visible">
                 
                 {/* Left: Brand Logo (direct layout link, no capsule) */}
                 <Link href="/" className="block active:scale-95 transition-transform duration-300">
                   <motion.div layoutId="logo-lockup" transition={reducedMotion ? { duration: 0 } : { duration: 0.8, ease: [0.16, 1, 0.3, 1] }}>
-                    <Logo size="lg" isFilled />
+                    <Logo size="md" isFilled />
                   </motion.div>
                 </Link>
 
                 {/* Right: Navigation controls */}
-                <div className="flex items-center gap-12">
+                <div className="flex items-center gap-8">
                   {/* About & Services desktop links */}
-                  <nav className="hidden md:flex items-center gap-10">
-                    <Link href="/about" className="text-xl font-bold tracking-widest text-white/80 hover:text-white transition-colors uppercase">
+                  <nav className="hidden md:flex items-center gap-8">
+                    <Link href="/about" className="text-lg font-semibold tracking-wider text-white/80 hover:text-white transition-colors uppercase">
                       About
                     </Link>
-                    <Link href="/services" className="text-xl font-bold tracking-widest text-white/80 hover:text-white transition-colors uppercase">
+                    <Link href="/services" className="text-lg font-semibold tracking-wider text-white/80 hover:text-white transition-colors uppercase">
                       Services
                     </Link>
                   </nav>
@@ -78,9 +78,9 @@ export const Navbar: React.FC<NavbarProps> = ({ isDocked }) => {
                     size="icon"
                     onClick={() => setIsMenuOpen(true)}
                     aria-label="Open Menu"
-                    className="h-14 w-14"
+                    className="h-12 w-12"
                   >
-                    <Menu className="h-7 w-7 text-white/95" />
+                    <Menu className="h-6 w-6 text-white/95" />
                   </GlassButton>
                 </div>
 
