@@ -13,6 +13,25 @@ interface GlassPanelProps extends React.HTMLAttributes<HTMLDivElement> {
 export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
   ({ className, children, glassColor, variant = "default", hoverScale = false, ...props }, ref) => {
     const filterId = React.useId().replace(/:/g, "");
+    const [isScrolling, setIsScrolling] = React.useState(false);
+
+    // Scroll state tracking to temporarily deactivate CPU-heavy SVG filter during scroll animations
+    React.useEffect(() => {
+      let scrollTimeout: NodeJS.Timeout;
+      const handleScroll = () => {
+        setIsScrolling(true);
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+          setIsScrolling(false);
+        }, 150);
+      };
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(scrollTimeout);
+      };
+    }, []);
 
     // Tints
     const defaultColor = variant === "accent"
@@ -41,8 +60,8 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
           .glass-panel-${filterId} {
             position: relative;
             background-color: ${panelBg};
-            backdrop-filter: url(#liquid-panel-${filterId});
-            -webkit-backdrop-filter: blur(28px) saturate(145%);
+            backdrop-filter: ${isScrolling ? "blur(20px) saturate(180%)" : `url(#liquid-panel-${filterId})`};
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
             box-shadow:
               0 0 8px rgba(0,0,0,0.03),
               0 2px 6px rgba(0,0,0,0.08),
@@ -53,6 +72,9 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
               inset 0 0 6px 6px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.22)' : 'rgba(255, 255, 255, 0.12)'},
               inset 0 0 2px 2px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.12)' : 'rgba(255, 255, 255, 0.06)'},
               0 0 12px ${variant === 'accent' ? 'rgba(229, 27, 36, 0.25)' : 'rgba(0, 0, 0, 0.15)'};
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            backface-visibility: hidden;
             transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1), background-color 500ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 500ms cubic-bezier(0.16, 1, 0.3, 1);
           }
           .glass-panel-${filterId}::before {
@@ -76,7 +98,7 @@ export const GlassPanel = React.forwardRef<HTMLDivElement, GlassPanelProps>(
           .glass-panel-${filterId}:hover::before {
             left: 150%;
           }
-          ${hoverScale ? `@media (hover: hover) { .glass-panel-${filterId}:hover { transform: translateY(-4px) scale(1.01); } }` : ''}
+          ${hoverScale ? `@media (hover: hover) { .glass-panel-${filterId}:hover { transform: translateY(-4px) scale(1.01) translate3d(0, -4px, 0); } }` : ''}
         `}</style>
         <div
           ref={ref}
