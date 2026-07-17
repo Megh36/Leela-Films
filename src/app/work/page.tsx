@@ -86,7 +86,7 @@ export default function WorkPage() {
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-                className="text-4xl md:text-6xl font-heading font-bold tracking-tight text-white leading-none"
+                className="text-3xl md:text-5xl font-heading font-bold tracking-tight text-white leading-none"
               >
                 Our Work
               </motion.h1>

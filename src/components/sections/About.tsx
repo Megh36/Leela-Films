@@ -29,7 +29,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-[4.5rem] xl:text-[5.8rem] font-heading font-extrabold text-white tracking-tight leading-[1.02]"
+            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-extrabold text-white tracking-tight leading-[1.02]"
           >
             A new-age <br />
             <span className="text-brand-red">entertainment</span> <br />

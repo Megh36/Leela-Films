@@ -118,13 +118,13 @@ export const Pillars: React.FC = () => {
               className="lg:col-span-7 flex flex-col gap-y-6"
             >
               {/* Pillar Number */}
-              <span className="text-brand-red/40 font-heading font-extrabold text-6xl md:text-8xl lg:text-[7rem] leading-none select-none drop-shadow-[0_0_15px_rgba(229,27,36,0.2)]">
+              <span className="text-brand-red/40 font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl leading-none select-none drop-shadow-[0_0_15px_rgba(229,27,36,0.2)]">
                 0{index + 1}
               </span>
 
               {/* Title */}
               <h2 
-                className="text-4xl md:text-6xl lg:text-[5rem] xl:text-[5.5rem] font-heading font-black text-brand-red tracking-tight leading-none"
+                className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-heading font-black text-brand-red tracking-tight leading-none"
                 style={{ textShadow: "0 0 20px rgba(229, 27, 36, 0.45), 0 0 40px rgba(229, 27, 36, 0.15)" }}
               >
                 {pillar.title}

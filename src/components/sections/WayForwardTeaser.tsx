@@ -127,7 +127,7 @@ export const WayForwardTeaser: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.05 }}
-              className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight"
+              className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white tracking-tight"
             >
               Way Forward
             </motion.h2>
