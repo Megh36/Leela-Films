@@ -40,7 +40,7 @@ export default function ContactPage() {
               <motion.span
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+                className="text-xs font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
               >
                 — GET IN TOUCH
               </motion.span>
@@ -65,8 +65,8 @@ export default function ContactPage() {
               >
                 {/* Direct Info */}
                 <div className="flex flex-col gap-y-4">
-                  <h2 className="text-2xl font-heading font-bold text-white">General Contact</h2>
-                  <div className="flex flex-col gap-y-3.5 text-base text-white/80 font-body font-normal">
+                  <h2 className="text-xl font-heading font-bold text-white">General Contact</h2>
+                  <div className="flex flex-col gap-y-3.5 text-sm text-white/80 font-body font-normal">
                     <a href="tel:+919909045481" className="flex items-center gap-3 hover:text-white transition-colors group">
                       <div className="h-9 w-9 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white/50 group-hover:text-brand-red group-hover:border-brand-red/30 transition-colors">
                         <Phone className="h-4 w-4" />
@@ -84,22 +84,22 @@ export default function ContactPage() {
 
                 {/* Corporate Address */}
                 <div className="flex flex-col gap-y-3">
-                  <div className="flex items-center gap-2 text-sm font-heading font-extrabold tracking-widest text-brand-red uppercase">
+                  <div className="flex items-center gap-2 text-xs font-heading font-extrabold tracking-widest text-brand-red uppercase">
                     <MapPin className="h-4 w-4" />
                     Corporate Address
                   </div>
-                  <p className="text-sm md:text-base text-white/85 leading-relaxed font-body font-normal pl-6">
+                  <p className="text-xs md:text-sm text-white/85 leading-relaxed font-body font-normal pl-6">
                     The Leela House, F-2, Mangalam Nirvana 2, Behind Umiya Campus, Sola Bhagwat, S.G. Highway, Ahmedabad – 380060, Gujarat, India
                   </p>
                 </div>
 
                 {/* Registered Address */}
                 <div className="flex flex-col gap-y-3">
-                  <div className="flex items-center gap-2 text-sm font-heading font-extrabold tracking-widest text-brand-red/70 uppercase">
+                  <div className="flex items-center gap-2 text-xs font-heading font-extrabold tracking-widest text-brand-red/70 uppercase">
                     <MapPin className="h-4 w-4" />
                     Registered Address
                   </div>
-                  <p className="text-sm md:text-base text-white/85 leading-relaxed font-body font-normal pl-6">
+                  <p className="text-xs md:text-sm text-white/85 leading-relaxed font-body font-normal pl-6">
                     C/23, Flat No. 502, Golds Green, Yamuna Nagar, Oshiwara Andheri West, Mumbai – 400053, Maharashtra, India
                   </p>
                 </div>
@@ -113,11 +113,11 @@ export default function ContactPage() {
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
                 className="lg:col-span-7"
               >
-                <GlassPanel className="p-10 border border-white/5">
+                <GlassPanel className="p-8 border border-white/5">
                   <form onSubmit={handleSubmit} className="flex flex-col gap-y-6">
                     
                     <div className="flex flex-col gap-y-2">
-                      <label htmlFor="name" className="text-sm font-heading font-extrabold tracking-widest text-white/75 uppercase">
+                      <label htmlFor="name" className="text-xs font-heading font-extrabold tracking-widest text-white/75 uppercase">
                         Your Name
                       </label>
                       <input
@@ -127,12 +127,12 @@ export default function ContactPage() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Kumpal Patel"
-                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-base transition-all duration-300 placeholder:text-white/20"
+                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-sm transition-all duration-300 placeholder:text-white/20"
                       />
                     </div>
 
                     <div className="flex flex-col gap-y-2">
-                      <label htmlFor="email" className="text-sm font-heading font-extrabold tracking-widest text-white/75 uppercase">
+                      <label htmlFor="email" className="text-xs font-heading font-extrabold tracking-widest text-white/75 uppercase">
                         Email Address
                       </label>
                       <input
@@ -142,12 +142,12 @@ export default function ContactPage() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. contact@leelafilms.com"
-                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-base transition-all duration-300 placeholder:text-white/20"
+                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-sm transition-all duration-300 placeholder:text-white/20"
                       />
                     </div>
 
                     <div className="flex flex-col gap-y-2">
-                      <label htmlFor="message" className="text-sm font-heading font-extrabold tracking-widest text-white/75 uppercase">
+                      <label htmlFor="message" className="text-xs font-heading font-extrabold tracking-widest text-white/75 uppercase">
                         Message / Narrative Inquiry
                       </label>
                       <textarea
@@ -157,7 +157,7 @@ export default function ContactPage() {
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         placeholder="Tell us about your next project, collaboration, or general query..."
-                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-base transition-all duration-300 placeholder:text-white/20 resize-none"
+                        className="w-full rounded-xl px-4 py-3 bg-[rgba(15,15,15,0.6)] border border-white/85 focus:border-brand-red focus:ring-1 focus:ring-brand-red outline-none text-white text-sm transition-all duration-300 placeholder:text-white/20 resize-none"
                       />
                     </div>
 
@@ -173,7 +173,7 @@ export default function ContactPage() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0 }}
-                            className="text-sm font-heading font-semibold text-brand-red tracking-wider uppercase"
+                            className="text-xs font-heading font-semibold text-brand-red tracking-wider uppercase"
                           >
                             Inquiry Sent successfully.
                           </motion.span>

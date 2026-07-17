@@ -91,8 +91,8 @@ export const WayForwardTeaser: React.FC = () => {
   });
 
   // Accordion dimensions based on screen type
-  const cardWidth = screenType === "desktop" ? 420 : screenType === "tablet" ? 340 : 0;
-  const cardHeight = screenType === "mobile" ? 240 : screenType === "tablet" ? 440 : 480;
+  const cardWidth = screenType === "desktop" ? 380 : screenType === "tablet" ? 310 : 0;
+  const cardHeight = screenType === "mobile" ? 210 : screenType === "tablet" ? 410 : 450;
   const overlapStep = screenType === "desktop" ? 50 : screenType === "tablet" ? 40 : 45;
 
   // Total container size
@@ -266,18 +266,18 @@ export const WayForwardTeaser: React.FC = () => {
 
                       <div className="flex flex-col gap-y-4 pr-6">
                         {/* Tag */}
-                        <span className="text-sm font-heading font-semibold tracking-wider text-brand-red/70 uppercase">
+                        <span className="text-xs font-heading font-semibold tracking-wider text-brand-red/70 uppercase">
                           // {item.tag}
                         </span>
                         {/* Title */}
-                        <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300">
+                        <h3 className="text-xl md:text-2xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300">
                           {item.title}
                         </h3>
                       </div>
 
                       {/* Body & Arrow */}
                       <div className="flex flex-col gap-y-4">
-                        <p className="text-base md:text-lg leading-relaxed font-normal font-body text-white/70">
+                        <p className="text-sm md:text-base leading-relaxed font-normal font-body text-white/70">
                           {item.desc}
                         </p>
                         <div className="flex justify-end text-white/30 group-hover:text-brand-red transition-colors duration-300">

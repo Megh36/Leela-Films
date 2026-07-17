@@ -90,7 +90,7 @@ export default function ServicesPage() {
               <motion.span
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+                className="text-xs font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
               >
                 — CAPABILITIES
               </motion.span>
@@ -116,27 +116,27 @@ export default function ServicesPage() {
                   transition={{ duration: 0.7, ease: "easeOut" }}
                   className="scroll-mt-32"
                 >
-                  <GlassPanel className="p-10 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <GlassPanel className="p-8 border border-white/5 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                     
                     {/* Info Column */}
                     <div className="lg:col-span-7 flex flex-col gap-y-4">
-                      <span className="text-xs font-heading font-bold tracking-widest text-brand-red uppercase">
+                      <span className="text-[10px] font-heading font-bold tracking-widest text-brand-red uppercase">
                         // {service.tag}
                       </span>
-                      <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-white">
+                      <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white">
                         {service.title}
                       </h2>
-                      <p className="text-base md:text-lg text-white/80 leading-relaxed font-normal font-body">
+                      <p className="text-sm md:text-base text-white/80 leading-relaxed font-normal font-body">
                         {service.longDesc}
                       </p>
                     </div>
 
                     {/* Deliverables Column */}
                     <div className="lg:col-span-5 border-t lg:border-t-0 lg:border-l border-white/10 pt-6 lg:pt-0 lg:pl-8 flex flex-col gap-y-4">
-                      <span className="text-sm font-heading font-extrabold tracking-widest text-white/40 uppercase">
+                      <span className="text-xs font-heading font-extrabold tracking-widest text-white/40 uppercase">
                         Key Deliverables
                       </span>
-                      <ul className="flex flex-col gap-y-2 text-sm md:text-base text-white/85 font-body font-normal">
+                      <ul className="flex flex-col gap-y-2 text-xs md:text-sm text-white/85 font-body font-normal">
                         {service.deliverables.map((item, idx) => (
                           <li key={idx} className="flex items-center gap-2">
                             <span className="h-1.5 w-1.5 bg-brand-red rounded-full flex-shrink-0" />

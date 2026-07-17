@@ -131,12 +131,12 @@ export const Pillars: React.FC = () => {
               </h2>
 
               {/* Subtitle / Big Quote */}
-              <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-normal font-body tracking-tight leading-snug">
+              <p className="text-lg md:text-xl lg:text-2xl text-white/90 font-normal font-body tracking-tight leading-snug">
                 {pillar.subtitle}
               </p>
 
               {/* Description */}
-              <p className="text-lg md:text-xl text-white/75 font-normal font-body max-w-2xl leading-relaxed">
+              <p className="text-base md:text-lg text-white/75 font-normal font-body max-w-2xl leading-relaxed">
                 {pillar.desc}
               </p>
             </motion.div>

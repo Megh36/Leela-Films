@@ -101,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ isDocked, setIsDocked, isLoading }) 
               animate={{ opacity: 0.9, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.35 }}
-              className="text-xl md:text-3xl font-accent italic text-white/95 leading-relaxed font-normal"
+              className="text-lg md:text-2xl font-accent italic text-white/95 leading-relaxed font-normal"
             >
               {BRAND_TAGLINE}
             </motion.p>
@@ -115,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ isDocked, setIsDocked, isLoading }) 
                 opacity: { delay: 1, duration: 1 },
                 y: { repeat: Infinity, duration: 2, ease: "easeInOut" }
               }}
-              className="absolute bottom-[-100px] text-sm font-heading font-semibold tracking-[0.2em] text-white/70 uppercase"
+              className="absolute bottom-[-100px] text-xs font-heading font-semibold tracking-[0.2em] text-white/70 uppercase"
             >
               Scroll or Tap to Enter
             </motion.div>

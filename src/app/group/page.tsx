@@ -72,7 +72,7 @@ export default function GroupPage() {
               <motion.span
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+                className="text-xs font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
               >
                 — SYNERGY
               </motion.span>
@@ -95,32 +95,32 @@ export default function GroupPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: reducedMotion ? 0 : index * 0.08 }}
                 >
-                  <GlassPanel hoverScale className="h-full p-8 flex flex-col justify-between gap-y-6 rounded-2xl border border-white/5">
+                  <GlassPanel hoverScale className="h-full p-6 flex flex-col justify-between gap-y-6 rounded-2xl border border-white/5">
                     <div className="flex flex-col gap-y-4">
                       {/* Header */}
                       <div className="flex justify-between items-start gap-4">
-                        <span className="text-xs font-heading font-bold tracking-widest text-brand-red bg-brand-red/5 px-2.5 py-1 rounded-full uppercase border border-brand-red/20">
+                        <span className="text-[9px] font-heading font-bold tracking-widest text-brand-red bg-brand-red/5 px-2.5 py-1 rounded-full uppercase border border-brand-red/20">
                           {company.region}
                         </span>
                       </div>
 
                       <div className="flex flex-col gap-y-1">
-                        <h2 className="text-xl md:text-2xl font-heading font-extrabold text-white">
+                        <h2 className="text-lg md:text-xl font-heading font-extrabold text-white">
                           {company.name}
                         </h2>
-                        <span className="text-sm text-white/50 font-body">
+                        <span className="text-xs text-white/50 font-body">
                           {company.sub}
                         </span>
                       </div>
                     </div>
 
                     <div className="flex flex-col gap-y-4">
-                      <p className="text-sm md:text-base text-white/80 leading-relaxed font-normal font-body">
+                      <p className="text-xs md:text-sm text-white/80 leading-relaxed font-normal font-body">
                         {company.desc}
                       </p>
 
                       {/* Logo/Icon shape accent */}
-                      <div className="flex items-center gap-2 text-white/10 font-heading text-xs tracking-widest uppercase border-t border-white/5 pt-4">
+                      <div className="flex items-center gap-2 text-white/10 font-heading text-[10px] tracking-widest uppercase border-t border-white/5 pt-4">
                         <span className="h-1.5 w-1.5 bg-brand-red rounded-full animate-pulse-slow" />
                         leela affiliate
                       </div>

@@ -56,7 +56,7 @@ export const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 0.5, y: 0 }}
           transition={{ delay: 0.1, duration: 0.4 }}
-          className="text-xs md:text-sm font-heading font-semibold tracking-[0.25em] text-white/70"
+          className="text-[11px] md:text-xs font-heading font-semibold tracking-[0.25em] text-white/70"
         >
           {BRAND_PHILOSOPHY} · {progress}%
         </motion.p>

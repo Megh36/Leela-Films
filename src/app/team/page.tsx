@@ -232,10 +232,10 @@ export default function TeamPage() {
             </div>
 
             {/* RIGHT ZONE — PROJECTION SCREEN (65% Width area on desktop) */}
-            <div className="w-full max-w-[620px] lg:max-w-[640px] h-[720px] lg:h-[760px] relative z-20 mx-auto lg:mr-[5%] lg:ml-auto flex flex-col justify-end">
+            <div className="w-full max-w-[580px] lg:max-w-[600px] h-[680px] lg:h-[720px] relative z-20 mx-auto lg:mr-[5%] lg:ml-auto flex flex-col justify-end">
               
               {/* Director Selector Tabs (Luxury Roster Controls) */}
-              <div className="absolute right-0 -top-16 flex gap-x-8 text-base md:text-lg font-heading font-extrabold tracking-wide z-30">
+              <div className="absolute right-0 -top-16 flex gap-x-8 text-sm md:text-base font-heading font-extrabold tracking-wide z-30">
                 {teamData.map((member, idx) => (
                   <button
                     key={member.name}
@@ -325,20 +325,20 @@ export default function TeamPage() {
                   <div className="flex-1 flex flex-col justify-end pt-4">
                     {/* Badge */}
                     <div>
-                      <span className="bg-[#D71920] text-white text-xs font-heading font-extrabold px-3.5 py-1.5 uppercase tracking-widest inline-block rounded-[1px]">
+                      <span className="bg-[#D71920] text-white text-[9px] font-heading font-extrabold px-3 py-1 uppercase tracking-widest inline-block rounded-[1px]">
                         {activeMember.role}
                       </span>
                     </div>
 
                     {/* Director Name */}
-                    <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-heading font-black text-black tracking-tight uppercase leading-none mt-2.5 mb-3.5 select-text">
+                    <h2 className="text-2xl md:text-3xl lg:text-[2.25rem] font-heading font-black text-black tracking-tight uppercase leading-none mt-2.5 mb-3.5 select-text">
                       {activeMember.name}
                     </h2>
 
                     {/* Description Box with Left Vertical Line & Right Accent Dash */}
                     <div className="flex items-start max-w-[90%]">
                       <div className="w-[3px] bg-[#D71920] self-stretch mr-4 shrink-0" />
-                      <p className="text-sm md:text-base text-gray-700 leading-relaxed font-normal font-body select-text">
+                      <p className="text-xs md:text-sm text-gray-700 leading-relaxed font-normal font-body select-text">
                         {activeMember.desc}
                         <span className="inline-block w-6 h-[2px] bg-[#D71920] ml-3 align-middle" />
                       </p>

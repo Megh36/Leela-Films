@@ -27,7 +27,7 @@ export default function AboutPage() {
               <motion.span
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+                className="text-xs font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
               >
                 — ABOUT US
               </motion.span>
@@ -49,7 +49,7 @@ export default function AboutPage() {
                 initial={reducedMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
-                className="lg:col-span-7 flex flex-col gap-y-6 text-lg md:text-xl text-white/85 leading-relaxed font-normal font-body"
+                className="lg:col-span-7 flex flex-col gap-y-6 text-base md:text-lg text-white/85 leading-relaxed font-normal font-body"
               >
                 <p>
                   Leela Film Pvt Ltd is a new-age entertainment and media ecosystem built with the vision of shaping culture, empowering talent, and taking Indian stories to global audiences. Rooted in creativity & driven by innovation, we aim to create premium entertainment experiences that connect emotionally, culturally, and commercially across platforms.
@@ -69,11 +69,11 @@ export default function AboutPage() {
                 transition={{ duration: 0.7, ease: "easeOut", delay: 0.25 }}
                 className="lg:col-span-5"
               >
-                <GlassPanel className="p-10 border border-white/5 flex flex-col gap-y-6">
-                  <span className="text-xs font-heading font-bold tracking-widest text-brand-red uppercase">
+                <GlassPanel className="p-8 border border-white/5 flex flex-col gap-y-6">
+                  <span className="text-[10px] font-heading font-bold tracking-widest text-brand-red uppercase">
                     // Mission Statement
                   </span>
-                  <blockquote className="text-2xl md:text-3xl font-accent italic text-white/90 leading-relaxed font-normal">
+                  <blockquote className="text-xl md:text-2xl font-accent italic text-white/90 leading-relaxed font-normal">
                     &ldquo;From Regional Roots to International Screens, Leela Films aspires to become a globally recognized entertainment brand representing the evolving voice of modern India.&rdquo;
                   </blockquote>
                 </GlassPanel>

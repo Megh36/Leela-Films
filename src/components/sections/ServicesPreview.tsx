@@ -124,7 +124,7 @@ export const ServicesPreview: React.FC = () => {
               initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="text-sm md:text-base font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+              className="text-xs md:text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
             >
               — WHAT WE DO
             </motion.span>
@@ -186,16 +186,16 @@ export const ServicesPreview: React.FC = () => {
         <div className="btn-marquee-track">
           {/* Set 1 */}
           {servicesData.map((service, index) => (
-            <Link key={`set1-${index}`} href={`/services#service-${index}`} className="w-[320px] md:w-[420px] shrink-0 block group">
+            <Link key={`set1-${index}`} href={`/services#service-${index}`} className="w-[280px] md:w-[360px] shrink-0 block group">
               <GlassPanel
                 hoverScale
                 className={`p-8 aspect-[16/10] flex flex-col justify-between rounded-2xl border border-white/5 bg-gradient-to-tr ${service.bgGradient} ${service.borderGlow} transition-all duration-300`}
               >
-                <span className="text-xs md:text-sm font-heading font-extrabold text-brand-red uppercase tracking-widest">
+                <span className="text-[10px] md:text-xs font-heading font-extrabold text-brand-red uppercase tracking-widest">
                   Category {service.category}
                 </span>
                 
-                <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300 mt-auto leading-tight">
+                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300 mt-auto leading-tight">
                   {service.title}
                 </h3>
               </GlassPanel>
@@ -204,16 +204,16 @@ export const ServicesPreview: React.FC = () => {
           
           {/* Set 2 (Duplicated for seamless loop) */}
           {servicesData.map((service, index) => (
-            <Link key={`set2-${index}`} href={`/services#service-${index}`} className="w-[320px] md:w-[420px] shrink-0 block group">
+            <Link key={`set2-${index}`} href={`/services#service-${index}`} className="w-[280px] md:w-[360px] shrink-0 block group">
               <GlassPanel
                 hoverScale
                 className={`p-8 aspect-[16/10] flex flex-col justify-between rounded-2xl border border-white/5 bg-gradient-to-tr ${service.bgGradient} ${service.borderGlow} transition-all duration-300`}
               >
-                <span className="text-xs md:text-sm font-heading font-extrabold text-brand-red uppercase tracking-widest">
+                <span className="text-[10px] md:text-xs font-heading font-extrabold text-brand-red uppercase tracking-widest">
                   Category {service.category}
                 </span>
                 
-                <h3 className="text-2xl md:text-3xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300 mt-auto leading-tight">
+                <h3 className="text-xl md:text-2xl font-heading font-extrabold text-white group-hover:text-brand-red transition-colors duration-300 mt-auto leading-tight">
                   {service.title}
                 </h3>
               </GlassPanel>

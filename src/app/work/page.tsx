@@ -78,7 +78,7 @@ export default function WorkPage() {
               <motion.span
                 initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+                className="text-xs font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
               >
                 — FILMOGRAPHY
               </motion.span>
@@ -101,24 +101,24 @@ export default function WorkPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut", delay: reducedMotion ? 0 : index * 0.1 }}
                 >
-                  <GlassPanel hoverScale className="h-full p-8 flex flex-col justify-between gap-y-8 rounded-2xl border border-white/5 relative">
+                  <GlassPanel hoverScale className="h-full p-6 flex flex-col justify-between gap-y-8 rounded-2xl border border-white/5 relative">
                     
                     {/* Title & Status */}
                     <div className="flex flex-col gap-y-4">
                       <div className="flex justify-between items-start gap-4">
-                        <span className="text-xs font-heading font-bold tracking-widest text-white/40 uppercase">
+                        <span className="text-[10px] font-heading font-bold tracking-widest text-white/40 uppercase">
                           {project.type}
                         </span>
-                        <span className={`text-xs font-heading font-bold tracking-widest px-2.5 py-1 rounded-full uppercase border ${getStatusColor(project.status)}`}>
+                        <span className={`text-[9px] font-heading font-bold tracking-widest px-2.5 py-1 rounded-full uppercase border ${getStatusColor(project.status)}`}>
                           {project.status}
                         </span>
                       </div>
 
                       <div className="flex flex-col gap-y-1">
-                        <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-white">
+                        <h2 className="text-xl md:text-2xl font-heading font-extrabold text-white">
                           {project.title}
                         </h2>
-                        <span className="text-sm text-brand-red font-heading font-semibold">
+                        <span className="text-xs text-brand-red font-heading font-semibold">
                           Slate Year: {project.year}
                         </span>
                       </div>
@@ -126,13 +126,13 @@ export default function WorkPage() {
 
                     {/* Body description */}
                     <div>
-                      <p className="text-sm md:text-base text-white/80 leading-relaxed font-normal font-body">
+                      <p className="text-xs md:text-sm text-white/80 leading-relaxed font-normal font-body">
                         {project.desc}
                       </p>
                     </div>
 
                     {/* Aesthetic frame markers */}
-                    <div className="flex items-center justify-between text-white/10 font-heading text-xs tracking-widest uppercase border-t border-white/5 pt-4">
+                    <div className="flex items-center justify-between text-white/10 font-heading text-[10px] tracking-widest uppercase border-t border-white/5 pt-4">
                       <span>Aspect Ratio: 2.39:1</span>
                       <span>leela production</span>
                     </div>

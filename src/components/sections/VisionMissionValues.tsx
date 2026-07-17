@@ -125,7 +125,7 @@ export const VisionMissionValues: React.FC = () => {
             initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="text-sm md:text-base font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+            className="text-xs md:text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
           >
             — THE STRATEGY
           </motion.span>
@@ -157,8 +157,8 @@ export const VisionMissionValues: React.FC = () => {
                 <div className="h-12 w-12 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
                   <Eye className="h-6 w-6" />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-heading font-black text-white relative z-10">Our Vision</h3>
-                <p className="text-white relative z-10 font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-heading font-black text-white relative z-10">Our Vision</h3>
+                <p className="text-white relative z-10 font-bold text-lg md:text-xl lg:text-2xl leading-relaxed tracking-tight">
                   To build the entertainment industry's most powerful hybrid ecosystem — creating iconic storytelling while delivering world class creative, production and brand services at a global standard.
                 </p>
                 <div className="pt-4 mt-auto relative z-10">
@@ -183,8 +183,8 @@ export const VisionMissionValues: React.FC = () => {
                 <div className="h-12 w-12 bg-brand-red/10 border border-brand-red/30 rounded-xl flex items-center justify-center text-brand-red relative z-10 flex-shrink-0">
                   <Target className="h-6 w-6" />
                 </div>
-                <h3 className="text-4xl md:text-5xl font-heading font-black text-white relative z-10">Our Mission</h3>
-                <p className="text-white relative z-10 font-bold text-xl md:text-2xl lg:text-3xl leading-relaxed tracking-tight">
+                <h3 className="text-3xl md:text-4xl font-heading font-black text-white relative z-10">Our Mission</h3>
+                <p className="text-white relative z-10 font-bold text-lg md:text-xl lg:text-2xl leading-relaxed tracking-tight">
                   To dominate every vertical of the entertainment and media industry through premium creativity, cultural impact, and uncompromising execution that connects with every generation.
                 </p>
                 <div className="pt-4 mt-auto relative z-10">
@@ -207,7 +207,7 @@ export const VisionMissionValues: React.FC = () => {
             className="lg:col-span-6"
           >
             <SpotlightCard className="p-12 h-full flex flex-col gap-y-8">
-              <h3 className="text-4xl md:text-5xl font-heading font-black text-white border-b border-white/10 pb-4 relative z-10">
+              <h3 className="text-3xl md:text-4xl font-heading font-black text-white border-b border-white/10 pb-4 relative z-10">
                 Core Values
               </h3>
               
@@ -226,7 +226,7 @@ export const VisionMissionValues: React.FC = () => {
                       <div className="h-10 w-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center text-white/75 group-hover/item:text-brand-red group-hover/item:border-brand-red/30 transition-all duration-300 flex-shrink-0 mt-0.5">
                         <Icon className="h-5 w-5" />
                       </div>
-                      <p className="text-white/85 leading-relaxed font-semibold font-body text-xl md:text-2xl lg:text-3xl group-hover/item:text-white transition-colors duration-300">
+                      <p className="text-white/85 leading-relaxed font-semibold font-body text-lg md:text-xl lg:text-2xl group-hover/item:text-white transition-colors duration-300">
                         {val.text}
                       </p>
                     </motion.div>

@@ -19,7 +19,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-sm md:text-base font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
+            className="text-xs md:text-sm font-heading font-extrabold tracking-[0.3em] text-brand-red uppercase"
           >
             — THE STORY
           </motion.span>
@@ -47,7 +47,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="text-lg md:text-xl lg:text-2xl text-white/85 leading-relaxed font-normal font-body"
+            className="text-base md:text-lg lg:text-xl text-white/85 leading-relaxed font-normal font-body"
           >
             Leela Films is a new-age entertainment and media company creating impactful stories across films, digital content, podcasts, and branded entertainment. Built on creativity, culture, and innovation, we focus on giving fresh talent a platform and building meaningful content that connects with people.
           </motion.p>
@@ -58,7 +58,7 @@ export const About: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-            className="text-xl md:text-2xl lg:text-3xl font-accent italic text-white/80 leading-relaxed font-normal font-serif"
+            className="text-lg md:text-xl lg:text-2xl font-accent italic text-white/80 leading-relaxed font-normal font-serif"
           >
             {CORE_PULL_QUOTE}
           </motion.p>

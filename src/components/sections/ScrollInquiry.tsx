@@ -23,9 +23,9 @@ export default function ScrollInquiry() {
   });
 
   // Smooth scroll unrolling maps:
-  // Height maps from 0px (rolled-up) to 840px (unrolled)
-  // Transition folds add another 100px total height, matching the original 940px dimension.
-  const parchmentHeight = useTransform(scrollYProgress, [0, 1], [0, 840]);
+  // Height maps from 0px (rolled-up) to 780px (unrolled)
+  // Transition folds add another 100px total height, matching the original 880px dimension.
+  const parchmentHeight = useTransform(scrollYProgress, [0, 1], [0, 780]);
   
   // Subtle sway/swing kinetic motion as scroll unrolls (rotation and horizontal translate)
   const scrollSwayRotate = useTransform(scrollYProgress, [0, 0.4, 0.8, 1], [0, -0.6, 0.4, 0]);
@@ -405,7 +405,7 @@ export default function ScrollInquiry() {
 
         {/* PARCHMENT BODY Chapters */}
         <motion.div 
-          style={{ height: reducedMotion ? 840 : parchmentHeight }}
+          style={{ height: reducedMotion ? 780 : parchmentHeight }}
           className="w-[580px] max-w-[90%] bg-[#F6EFE4] relative overflow-hidden flex flex-col justify-start z-10 border-x border-[#dcd1be] shadow-[inset_0_0_40px_rgba(43,26,12,0.08)]"
         >
           {/* Velvet fold shadows cast onto top and bottom edges of the parchment */}
@@ -436,7 +436,7 @@ export default function ScrollInquiry() {
                 
                 {/* Full Name */}
                 <div className="flex flex-col gap-y-2">
-                  <label htmlFor="name" className="text-sm font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
+                  <label htmlFor="name" className="text-xs font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
                     Full Name
                   </label>
                   <div className="relative">
@@ -448,14 +448,14 @@ export default function ScrollInquiry() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Your name"
-                      className="w-full rounded-[8px] pl-10 pr-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-base transition-all duration-300 placeholder:text-[#3B3026]/40"
+                      className="w-full rounded-[8px] pl-10 pr-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-sm transition-all duration-300 placeholder:text-[#3B3026]/40"
                     />
                   </div>
                 </div>
 
                 {/* Email Address */}
                 <div className="flex flex-col gap-y-2">
-                  <label htmlFor="email" className="text-sm font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
+                  <label htmlFor="email" className="text-xs font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
                     Email Address
                   </label>
                   <div className="relative">
@@ -467,7 +467,7 @@ export default function ScrollInquiry() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="Your email"
-                      className="w-full rounded-[8px] pl-10 pr-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-base transition-all duration-300 placeholder:text-[#3B3026]/40"
+                      className="w-full rounded-[8px] pl-10 pr-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-sm transition-all duration-300 placeholder:text-[#3B3026]/40"
                     />
                   </div>
                 </div>
@@ -476,13 +476,13 @@ export default function ScrollInquiry() {
 
               {/* Collaboration Interest Dropdown */}
               <div className="flex flex-col gap-y-2 relative">
-                <label className="text-sm font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
+                <label className="text-xs font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
                   Collaboration Interest
                 </label>
                 <button
                   type="button"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-full rounded-[8px] px-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] text-[#3B3026] text-base flex items-center justify-between outline-none transition-all duration-300 text-left"
+                  className="w-full rounded-[8px] px-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] text-[#3B3026] text-sm flex items-center justify-between outline-none transition-all duration-300 text-left"
                 >
                   <span>{interest}</span>
                   <ChevronDown className={`h-4 w-4 text-[#8D1E24] transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
@@ -506,7 +506,7 @@ export default function ScrollInquiry() {
                             setInterest(opt);
                             setIsDropdownOpen(false);
                           }}
-                          className="w-full text-left px-4 py-3 text-sm sm:text-base text-[#3B3026] hover:bg-[#8D1E24] hover:text-[#F6EFE4] transition-colors duration-200 border-b border-[#B79E74]/20 last:border-b-0"
+                          className="w-full text-left px-4 py-3 text-xs sm:text-sm text-[#3B3026] hover:bg-[#8D1E24] hover:text-[#F6EFE4] transition-colors duration-200 border-b border-[#B79E74]/20 last:border-b-0"
                         >
                           {opt}
                         </button>
@@ -518,7 +518,7 @@ export default function ScrollInquiry() {
 
               {/* Message Box */}
               <div className="flex flex-col gap-y-2">
-                <label htmlFor="message" className="text-sm font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
+                <label htmlFor="message" className="text-xs font-heading font-extrabold tracking-widest text-[#8D1E24] uppercase">
                   Message
                 </label>
                 <textarea
@@ -527,7 +527,7 @@ export default function ScrollInquiry() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   placeholder="Outline your idea or collaboration request..."
-                  className="w-full h-[180px] rounded-[8px] px-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-base transition-all duration-300 placeholder:text-[#3B3026]/40 resize-none"
+                  className="w-full h-[180px] rounded-[8px] px-4 py-3.5 bg-[rgba(255,255,255,0.18)] border border-[#B79E74] focus:border-[#8D1E24] focus:ring-1 focus:ring-[#8D1E24] outline-none text-[#3B3026] text-sm transition-all duration-300 placeholder:text-[#3B3026]/40 resize-none"
                 />
               </div>
 
@@ -549,7 +549,7 @@ export default function ScrollInquiry() {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0 }}
-                      className="text-sm font-heading font-bold text-[#8D1E24] tracking-wider uppercase mt-2"
+                      className="text-xs font-heading font-bold text-[#8D1E24] tracking-wider uppercase mt-2"
                     >
                       Inquiry Sent Successfully.
                     </motion.span>

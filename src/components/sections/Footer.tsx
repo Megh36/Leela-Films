@@ -42,17 +42,17 @@ export const Footer: React.FC = () => {
           {/* Logo & Tagline Column */}
           <div className="md:col-span-5 flex flex-col gap-y-5">
             <Logo size="md" isFilled />
-            <p className="text-xl font-accent italic text-white/80 leading-relaxed font-normal mt-2 max-w-xl">
+            <p className="text-lg font-accent italic text-white/80 leading-relaxed font-normal mt-2 max-w-xl">
               Shaping Culture. Empowering Talent. Telling Indian Stories Globally.
             </p>
-            <span className="text-base font-heading font-semibold tracking-[0.25em] text-white/35 uppercase mt-1">
+            <span className="text-sm font-heading font-semibold tracking-[0.25em] text-white/35 uppercase mt-1">
               From Home to Worldwide
             </span>
           </div>
 
           {/* Quick Nav links Column */}
           <div className="md:col-span-2 flex flex-col gap-y-5">
-            <h4 className="text-lg font-heading font-black tracking-widest text-brand-red uppercase">
+            <h4 className="text-base font-heading font-black tracking-widest text-brand-red uppercase">
               Navigation
             </h4>
             <div className="flex flex-col gap-y-3.5">
@@ -60,7 +60,7 @@ export const Footer: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-heading font-semibold tracking-wider text-white/60 hover:text-white transition-colors uppercase"
+                  className="text-base font-heading font-semibold tracking-wider text-white/60 hover:text-white transition-colors uppercase"
                 >
                   {link.name}
                 </Link>
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
 
           {/* Corporate links Column */}
           <div className="md:col-span-2 flex flex-col gap-y-5">
-            <h4 className="text-lg font-heading font-black tracking-widest text-brand-red uppercase">
+            <h4 className="text-base font-heading font-black tracking-widest text-brand-red uppercase">
               Corporate
             </h4>
             <div className="flex flex-col gap-y-3.5">
@@ -78,7 +78,7 @@ export const Footer: React.FC = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-lg font-heading font-semibold tracking-wider text-white/60 hover:text-white transition-colors uppercase"
+                  className="text-base font-heading font-semibold tracking-wider text-white/60 hover:text-white transition-colors uppercase"
                 >
                   {link.name}
                 </Link>
@@ -88,10 +88,10 @@ export const Footer: React.FC = () => {
 
           {/* Contact Details Column */}
           <div className="md:col-span-3 flex flex-col gap-y-5">
-            <h4 className="text-lg font-heading font-black tracking-widest text-brand-red uppercase">
+            <h4 className="text-base font-heading font-black tracking-widest text-brand-red uppercase">
               Reach Out
             </h4>
-            <div className="flex flex-col gap-y-4 text-lg text-white/75 font-body font-normal">
+            <div className="flex flex-col gap-y-4 text-base text-white/75 font-body font-normal">
               <a href="tel:+919909045481" className="flex items-center gap-3.5 hover:text-white transition-colors">
                 <Phone className="h-5 w-5 text-brand-red/80 flex-shrink-0" />
                 +91 99090 45481
@@ -112,7 +112,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom copyright row */}
-        <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-base tracking-wider text-white/50 uppercase font-heading font-bold">
+        <div className="border-t border-white/5 pt-10 flex flex-col sm:flex-row items-center justify-between gap-6 text-sm tracking-wider text-white/50 uppercase font-heading font-bold">
           <div>
             © {new Date().getFullYear()} Leela Films Pvt Ltd. All Rights Reserved.
           </div>
