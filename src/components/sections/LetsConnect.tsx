@@ -113,7 +113,7 @@ export const LetsConnect: React.FC = () => {
       {/* Central Interactive Motion Gesture Arena */}
       <div className="relative w-full max-w-6xl h-[400px] sm:h-[480px] md:h-[560px] flex items-center justify-center">
 
-        {/* LEFT HAND — 3D Cybernetic Wireframe Hand */}
+        {/* LEFT HAND — 3D Cybernetic Wireframe Hand Cutout */}
         <motion.div
           style={{
             x: leftHandX,
@@ -125,11 +125,11 @@ export const LetsConnect: React.FC = () => {
           <img
             src="/wireframe-hand.png"
             alt="Cybernetic Wireframe Hand"
-            className="w-[280px] sm:w-[380px] md:w-[500px] lg:w-[560px] h-auto object-contain mix-blend-screen filter drop-shadow-[0_0_20px_rgba(229,27,36,0.65)] pointer-events-none"
+            className="w-[280px] sm:w-[380px] md:w-[500px] lg:w-[560px] h-auto object-contain filter drop-shadow-[0_0_25px_rgba(229,27,36,0.7)] pointer-events-none"
           />
         </motion.div>
 
-        {/* RIGHT HAND — Photorealistic Human Hand */}
+        {/* RIGHT HAND — Photorealistic Human Hand Cutout */}
         <motion.div
           style={{
             x: rightHandX,
@@ -141,7 +141,7 @@ export const LetsConnect: React.FC = () => {
           <img
             src="/human-hand.png"
             alt="Photorealistic Human Hand"
-            className="w-[300px] sm:w-[400px] md:w-[520px] lg:w-[580px] h-auto object-contain mix-blend-screen filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.95)] pointer-events-none"
+            className="w-[300px] sm:w-[400px] md:w-[520px] lg:w-[580px] h-auto object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.95)] pointer-events-none"
           />
         </motion.div>
 
