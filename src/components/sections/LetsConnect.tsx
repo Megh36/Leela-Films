@@ -47,9 +47,9 @@ export const LetsConnect: React.FC = () => {
   };
 
   // Motion transforms for Left Wireframe Hand (moves from top-left towards center)
-  // Shifted Y offset higher (-140px) so the robotic index finger moves up to match the play button center
-  const leftHandX = useTransform(proximitySpring, [0, 1], [-240, 0]);
-  const leftHandY = useTransform(proximitySpring, [0, 1], [-250, -140]);
+  // Shifted Y offset much higher (-230px) so the robotic index finger moves UP onto the Play Button center
+  const leftHandX = useTransform(proximitySpring, [0, 1], [-240, -10]);
+  const leftHandY = useTransform(proximitySpring, [0, 1], [-340, -230]);
   const leftHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.05]);
 
   // Motion transforms for Right Realistic Human Hand (moves from bottom-right towards center)
