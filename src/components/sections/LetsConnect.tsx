@@ -53,9 +53,9 @@ export const LetsConnect: React.FC = () => {
   const leftHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.05]);
 
   // Motion transforms for Right Realistic Human Hand (moves from bottom-right towards center)
-  // Lowered Y offset (+175px) so the index finger moves directly onto the central Play Button
-  const rightHandX = useTransform(proximitySpring, [0, 1], [240, -15]);
-  const rightHandY = useTransform(proximitySpring, [0, 1], [260, 175]);
+  // Lowered Y offset (+225px) so the index fingertip sits exactly in the middle of the Play Button
+  const rightHandX = useTransform(proximitySpring, [0, 1], [240, 10]);
+  const rightHandY = useTransform(proximitySpring, [0, 1], [280, 225]);
   const rightHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.05]);
 
   // Energy spark opacity & scale at fingertip touch point
