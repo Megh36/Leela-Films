@@ -47,14 +47,16 @@ export const LetsConnect: React.FC = () => {
   };
 
   // Motion transforms for Left Wireframe Hand (moves from top-left towards center)
-  const leftHandX = useTransform(proximitySpring, [0, 1], [-220, 0]);
-  const leftHandY = useTransform(proximitySpring, [0, 1], [-120, 0]);
-  const leftHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.06]);
+  const leftHandX = useTransform(proximitySpring, [0, 1], [-260, 45]);
+  const leftHandY = useTransform(proximitySpring, [0, 1], [-180, -95]);
+  const leftHandRotate = useTransform(proximitySpring, [0, 1], [-5, -24]);
+  const leftHandScale = useTransform(proximitySpring, [0, 1], [0.85, 1.05]);
 
   // Motion transforms for Right Realistic Human Hand (moves from bottom-right towards center)
-  const rightHandX = useTransform(proximitySpring, [0, 1], [240, 0]);
-  const rightHandY = useTransform(proximitySpring, [0, 1], [130, 0]);
-  const rightHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.06]);
+  const rightHandX = useTransform(proximitySpring, [0, 1], [280, -45]);
+  const rightHandY = useTransform(proximitySpring, [0, 1], [180, 105]);
+  const rightHandRotate = useTransform(proximitySpring, [0, 1], [5, 22]);
+  const rightHandScale = useTransform(proximitySpring, [0, 1], [0.85, 1.05]);
 
   // Energy spark opacity & scale at fingertip touch point
   const sparkOpacity = useTransform(proximitySpring, [0.85, 1], [0, 1]);
@@ -118,6 +120,7 @@ export const LetsConnect: React.FC = () => {
           style={{
             x: leftHandX,
             y: leftHandY,
+            rotate: leftHandRotate,
             scale: leftHandScale,
           }}
           className="absolute left-[-5%] sm:left-[2%] md:left-[5%] top-[0%] md:top-[2%] z-10 pointer-events-none origin-top-left"
@@ -134,6 +137,7 @@ export const LetsConnect: React.FC = () => {
           style={{
             x: rightHandX,
             y: rightHandY,
+            rotate: rightHandRotate,
             scale: rightHandScale,
           }}
           className="absolute right-[-5%] sm:right-[2%] md:right-[5%] bottom-[0%] md:bottom-[2%] z-10 pointer-events-none origin-bottom-right"
