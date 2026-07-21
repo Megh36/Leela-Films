@@ -47,13 +47,15 @@ export const LetsConnect: React.FC = () => {
   };
 
   // Motion transforms for Left Wireframe Hand (moves from top-left towards center)
-  const leftHandX = useTransform(proximitySpring, [0, 1], [-220, 0]);
-  const leftHandY = useTransform(proximitySpring, [0, 1], [-140, -35]);
+  // Fingertip is at Y=68% inside image. Offset of -70px brings fingertip exactly to Y=0 (Play Button center)
+  const leftHandX = useTransform(proximitySpring, [0, 1], [-240, 0]);
+  const leftHandY = useTransform(proximitySpring, [0, 1], [-180, -70]);
   const leftHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.05]);
 
   // Motion transforms for Right Realistic Human Hand (moves from bottom-right towards center)
-  const rightHandX = useTransform(proximitySpring, [0, 1], [240, 0]);
-  const rightHandY = useTransform(proximitySpring, [0, 1], [150, 45]);
+  // Fingertip is at Y=20% inside image. Offset of +110px brings fingertip exactly to Y=0 (Play Button center)
+  const rightHandX = useTransform(proximitySpring, [0, 1], [240, -45]);
+  const rightHandY = useTransform(proximitySpring, [0, 1], [200, 110]);
   const rightHandScale = useTransform(proximitySpring, [0, 1], [0.88, 1.05]);
 
   // Energy spark opacity & scale at fingertip touch point
