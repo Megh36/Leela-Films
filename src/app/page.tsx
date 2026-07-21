@@ -9,6 +9,7 @@ import About from "@/components/sections/About";
 import Pillars from "@/components/sections/Pillars";
 import VisionMissionValues from "@/components/sections/VisionMissionValues";
 import ServicesPreview from "@/components/sections/ServicesPreview";
+import LetsConnect from "@/components/sections/LetsConnect";
 import WayForwardTeaser from "@/components/sections/WayForwardTeaser";
 import FooterReveal from "@/components/brand/FooterReveal";
 import ScrollInquiry from "@/components/sections/ScrollInquiry";
@@ -85,6 +86,7 @@ export default function Home() {
                   <Pillars />
                   <VisionMissionValues />
                   <ServicesPreview />
+                  <LetsConnect />
                   <WayForwardTeaser />
                   <ScrollInquiry />
                 </motion.div>
